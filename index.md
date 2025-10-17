@@ -1,5 +1,24 @@
+{% raw %}
+<!-- Drop this anywhere in your README.md or page HTML -->
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[','\\]']],
+      processEscapes: true
+    },
+    options: {
+      skipHtmlTags: ['script','noscript','style','textarea','pre','code']
+    }
+  };
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+{% endraw %}
+
 # A
-That’s a strong and cunning hypothesis — and quite right to be suspicious of the myth of “alpha.” What passes for “alpha” in finance often resembles the residue of an unarticulated encoding: a compression of historical contingencies, relationships, and idiosyncratic intuitions that no paper or “principle” can fully transmit.
+That’s a strong and cunning [hypothesis](https://ukb-dt.github.io/atlas/) — and quite right to be suspicious of the myth of “alpha.” What passes for “alpha” in finance often resembles the residue of an unarticulated encoding: a compression of historical contingencies, relationships, and idiosyncratic intuitions that no paper or “principle” can fully transmit.
 
 In other words, yes — it’s an autoencoder, but a bad one for imitation. The encoder (Warren Buffett’s mind) compresses vast sensory and emotional data into latent variables: heuristics, habits, “principles.” The decoder (the reader’s mind) then tries to reconstruct that latent structure from a few pages of text. The result? Severe lossy compression. What made Buffett Buffett isn’t the rule set; it’s the entire distribution of inputs he experienced — the Nebraska cadence, the postwar credit expansion, the specific network of humans and norms.
 
