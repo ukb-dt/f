@@ -1,21 +1,4 @@
-{% raw %}
-<!-- Drop this anywhere in your README.md or page HTML -->
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$','$$'], ['\\[','\\]']],
-      processEscapes: true
-    },
-    options: {
-      skipHtmlTags: ['script','noscript','style','textarea','pre','code']
-    }
-  };
-</script>
-<script id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-{% endraw %}
+
 
 # A
 That’s a strong and cunning [hypothesis](https://ukb-dt.github.io/atlas/) — and quite right to be suspicious of the myth of “alpha.” What passes for “alpha” in finance often resembles the residue of an unarticulated encoding: a compression of historical contingencies, relationships, and idiosyncratic intuitions that no paper or “principle” can fully transmit.
@@ -111,25 +94,27 @@ That enduring dominance tells us that humanity still optimizes for **compression
 # H
 Beautiful shorthand — you’re trying to turn a qualitative claim into a crisp inequality. Let’s translate and sharpen it so the symbols actually mean something.
 
-Take (y(t\mid x)) to be **coherence** (or expected utility, meaning, low-loss reconstruction) at time (t) given context (x). Think of (y) as a scalar signal: high when a worldview, narrative, or policy fits experience and reduces surprise; low when it doesn’t.
+Take $y(t\mid x)$ to be **coherence** (or expected utility, meaning, low-loss reconstruction) at time (t) given context (x). Think of (y) as a scalar signal: high when a worldview, narrative, or policy fits experience and reduces surprise; low when it doesn’t.
 
 Two natural quantities then appear:
 
-* (\displaystyle C_{[t_0,t_1]}(x)=\int_{t_0}^{t_1} y(t\mid x),dt) — the **cumulative coherence** (how much coherent meaning has been accrued over a time window). This maps to your Ukubona notion of **Yield** / (\Delta S).
+* $\displaystyle C_{[t_0,t_1]}(x)=\int_{t_0}^{t_1} y(t\mid x),dt$ — the **cumulative coherence** (how much coherent meaning has been accrued over a time window). This maps to your Ukubona notion of **Yield** / $\Delta S$.
 
-* (\displaystyle N(t)=\left|\frac{d^2}{dt^2}y(t\mid x)\right|) (or a norm/measure of that) — the **instantaneous novelty/curvature** (how rapidly the system’s meaning is accelerating or bending). This maps to the ukb-fractal’s (h(t)) (curvature, contagion, disruption).
+* $\displaystyle N(t)=\left|\frac{d^2}{dt^2}y(t\mid x)\right|$ (or a norm/measure of that) — the **instantaneous novelty/curvature** (how rapidly the system’s meaning is accelerating or bending). This maps to the ukb-fractal’s $h(t)$ (curvature, contagion, disruption).
 
 Your informal inequality
-[
+
+$$
 \int y(t\mid x),dt ;>; \frac{d^2 t}{dt^2}
-]
+$$
+
 is close, but dimensionally odd (the RHS as written is nonsense because (\frac{d^2 t}{dt^2}=0)). A more coherent formal version is:
 
-[
+$$
 \boxed{; \int_{t_0}^{t_1} y(t\mid x),dt ;>; \kappa;\max_{t\in[t_0,t_1]}\left|\frac{d^2}{dt^2}y(t\mid x)\right|;}
-]
+$$
 
-where (\kappa>0) is a scaling factor that makes the two sides comparable (units, time-window, system sensitivity). Reading: **the accumulated coherence over the interval dominates the peak novelty/acceleration**.
+where $\kappa>0$ is a scaling factor that makes the two sides comparable (units, time-window, system sensitivity). Reading: **the accumulated coherence over the interval dominates the peak novelty/acceleration**.
 
 Interpretation and implications
 
@@ -139,36 +124,38 @@ Interpretation and implications
 
 How to operationalize (y)
 
-* As **statistical coherence**: (y(t|x) = -\mathrm{KL}[P_{\text{obs}}(\cdot\mid t),|,P_{\text{model}}(\cdot\mid x)]) or negative surprise (log-likelihood).
+* As **statistical coherence**: $y(t|x) = -\mathrm{KL}[P_{\text{obs}}(\cdot\mid t),|,P_{\text{model}}(\cdot\mid x)]$ or negative surprise (log-likelihood).
 * As **psychological coherence**: a subjective score from surveys, behavioral consistency, or reduced decision-variance.
 * As **institutional coherence**: metric combining rule-following, coordination efficiency, and cumulative trust.
 
 Concrete toy forms
 
-* Slow-decay stable world: (y(t)=A(1-e^{-\lambda t})). Then (\int y) grows ~linearly after transient; curvature small.
-* Burst/novelty: (y(t)=A\exp(-\alpha t)+B\sin(\omega t)). High-frequency component gives large (|d^2y/dt^2|) even if (\int y) is modest.
+* Slow-decay stable world: $y(t)=A(1-e^{-\lambda t})$. Then $\int y$ grows ~linearly after transient; curvature small.
+* Burst/novelty: $y(t)=A\exp(-\alpha t)+B\sin(\omega t)$. High-frequency component gives large $|d^2y/dt^2|$ even if $\int y$ is modest.
 
 Short punchline (Ukubona style)
 
-* Civilization optimizes the left-hand side when it wants legibility and governance; it tolerates the right-hand side when it needs learning and evolution. The art is choosing (\kappa) and the window ([t_0,t_1]) so you don’t calcify into dogma nor dissolve into chaos.
+* Civilization optimizes the left-hand side when it wants legibility and governance; it tolerates the right-hand side when it needs learning and evolution. The art is choosing $\kappa) and the window ([t_0,t_1]$ so you don’t calcify into dogma nor dissolve into chaos.
 
-If you want, I’ll build a tiny toy model now (choose a form for (y(t)) or a data metaphor) to illustrate regimes where the inequality holds or flips — and we can map those regimes to religion, science, tech, and markets.
+If you want, I’ll build a tiny toy model now (choose a form for $y(t)$ or a data metaphor) to illustrate regimes where the inequality holds or flips — and we can map those regimes to religion, science, tech, and markets.
 
 # I
-Nice — that little +(\epsilon t + C) is exactly the ingredient that makes the model feel alive instead of sterile. Let me tidy it into a crisp, usable form and give the intuition (and a tiny worked toy expression you can actually check).
+Nice — that little +$\epsilon t + C$ is exactly the ingredient that makes the model feel alive instead of sterile. Let me tidy it into a crisp, usable form and give the intuition (and a tiny worked toy expression you can actually check).
 
 ---
 
 ### 1) The corrected quantity
 
 You’re now tracking
-[
+
+$$
 \mathcal{L}(t_0,t_1 \mid x) ;=; \int_{t_0}^{t_1} y(t\mid x),dt ;+; \epsilon, (t_1-t_0) ;+; C.
-]
+$$
+
 Interpretation:
 
-* (\displaystyle\int y,dt) — **cumulative coherence** (accumulated low-loss meaning).
-* (\epsilon t) (here written as (\epsilon (t_1-t_0))) — **drift** or secular trend: could be technological progress, resource flux, cultural momentum, inflation of belief, or slow decay. Sign matters: (\epsilon>0) pumps coherence over time; (\epsilon<0) erodes it.
+* $\displaystyle\int y,dt$ — **cumulative coherence** (accumulated low-loss meaning).
+* $\epsilon t$ (here written as $\epsilon (t_1-t_0))$ — **drift** or secular trend: could be technological progress, resource flux, cultural momentum, inflation of belief, or slow decay. Sign matters: $\epsilon>0$ pumps coherence over time; (\epsilon<0) erodes it.
 * (C) — **baseline/founding ledger**: prior commitments, sacred texts, institutions, initial capital of trust.
 
 ---
@@ -176,10 +163,12 @@ Interpretation:
 ### 2) Compare to novelty/curvature
 
 Make the earlier inequality dimensionally sensible by comparing (\mathcal{L}) to a scale of novelty:
-[
+
+$$
 \boxed{;\mathcal{L}(t_0,t_1\mid x);>;\kappa;\max_{t\in[t_0,t_1]}\left|\frac{d^2}{dt^2}y(t\mid x)\right|; }
-]
-where (\kappa) normalizes units (so the two sides are comparable). Reading: *accumulated coherence + trend + baseline must dominate peak curvature (novelty) for a regime to be “coherence-dominant.”*
+$$
+
+where $\kappa$ normalizes units (so the two sides are comparable). Reading: *accumulated coherence + trend + baseline must dominate peak curvature (novelty) for a regime to be “coherence-dominant.”*
 
 * If true → stability, legibility, institutionality.
 * If false → novelty-dominant → revolutions, paradigm shifts, viral contagion.
@@ -188,29 +177,31 @@ where (\kappa) normalizes units (so the two sides are comparable). Reading: *acc
 
 ### 3) Toy analytic expression (concrete)
 
-Take a simple (y(t)=A e^{-\lambda t}+B\sin(\omega t)) on ([0,T]). Then:
+Take a simple $y(t)=A e^{-\lambda t}+B\sin(\omega t)$ on $[0,T]$. Then:
 
-* (\displaystyle\int_0^T y,dt = \frac{A}{\lambda}(1-e^{-\lambda T}) + \frac{B}{\omega}\big(1-\cos(\omega T)\big)).
-* (\displaystyle\max_{t\in[0,T]}\left|\frac{d^2y}{dt^2}\right| = \max\big(A\lambda^2 e^{-\lambda t},, B\omega^2\big) \approx \max(A\lambda^2,,B\omega^2)).
+* $\displaystyle\int_0^T y,dt = \frac{A}{\lambda}(1-e^{-\lambda T}) + \frac{B}{\omega}\big(1-\cos(\omega T)\big)$.
+* $\displaystyle\max_{t\in[0,T]}\left|\frac{d^2y}{dt^2}\right| = \max\big(A\lambda^2 e^{-\lambda t},, B\omega^2\big) \approx \max(A\lambda^2,,B\omega^2)$.
 
 So the condition becomes
-[
+
+$$
 \frac{A}{\lambda}(1-e^{-\lambda T}) + \frac{B}{\omega}(1-\cos\omega T) + \epsilon T + C ;>; \kappa;\max(A\lambda^2,, B\omega^2).
-]
+$$
+
 Useful intuition from this:
 
-* High-frequency novelty (large (\omega)) inflates the RHS by (B\omega^2) — easy to overwhelm cumulative coherence unless (\epsilon) or (C) are large.
-* Slow-decay signal (A,\lambda) contributes heavily to the LHS if (\lambda) is small (long memory); its curvature contribution (A\lambda^2) is small if (\lambda) is small. So long-memory civs resist novelty cheaply.
-* Small baseline (C) + negative drift (\epsilon<0) makes the system brittle.
+* High-frequency novelty $large (\omega)$ inflates the RHS by $B\omega^2$ — easy to overwhelm cumulative coherence unless $\epsilon$ or $C$ are large.
+* Slow-decay signal $A,\lambda$ contributes heavily to the LHS if $\lambda$ is small (long memory); its curvature contribution $A\lambda^2$ is small if $\lambda$ is small. So long-memory civs resist novelty cheaply.
+* Small baseline $C$ + negative drift $\epsilon<0$ makes the system brittle.
 
 ---
 
 ### 4) Mapping to the Ukb-Fractal / civilization
 
-* (C) = *founding ledger* (scripture, constitution, initial trust-capital).
-* (\epsilon) = *exogenous drift* (technology, climate, external shocks, compound interest).
-* (\int y) = *accumulated cultural legibility / institutions*.
-* (\max|d^2y/dt^2|) = *contagion, acceleration, disruptive curvature* (h(t) in your ukb-fractal).
+* $C$ = *founding ledger* (scripture, constitution, initial trust-capital).
+* $\epsilon$ = *exogenous drift* (technology, climate, external shocks, compound interest).
+* $\int y$ = *accumulated cultural legibility / institutions*.
+* $\max|d^2y/dt^2|$ = *contagion, acceleration, disruptive curvature* (h(t) in your ukb-fractal).
 
 So the *Faustian bargain* we discussed earlier is visible here: you can increase (C) and (\epsilon) (build up legibility and momentum) to suppress novelty, but too much does ossify; too little invites chaotic curvature.
 
@@ -218,6 +209,26 @@ So the *Faustian bargain* we discussed earlier is visible here: you can increase
 
 ### Short punch
 
-That (\epsilon t + C) is the civilization-level cheat code: small steady drift or a deep founding ledger buys enormous resistance to disruptive novelty. It’s how theogony gets compressed into a single God and how a startup survives a market shock — architecture plus trend, stabilized against curvature.
+That $\epsilon t + C$ is the civilization-level cheat code: small steady drift or a deep founding ledger buys enormous resistance to disruptive novelty. It’s how theogony gets compressed into a single God and how a startup survives a market shock — architecture plus trend, stabilized against curvature.
 
-If you’d like, I’ll spin this into a quick plot / simulation (several regimes: high-(\omega), large-(C), negative-(\epsilon)) so we can watch the inequality flip in real time. I’ll run it now if you want a concrete visualization.
+If you’d like, I’ll spin this into a quick plot / simulation (several regimes: high-$\omega$, large-$C$, negative-$\epsilon)$ so we can watch the inequality flip in real time. I’ll run it now if you want a concrete visualization.
+
+
+{% raw %}
+<!-- Drop this anywhere in your README.md or page HTML -->
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[','\\]']],
+      processEscapes: true
+    },
+    options: {
+      skipHtmlTags: ['script','noscript','style','textarea','pre','code']
+    }
+  };
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+{% endraw %}
